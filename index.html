@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GabutClub SMP</title>
+<link rel="icon" type="image/png" href="logo.png">
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Background image */
+.bg {
+    position: fixed;
+    width: 150%;
+    height: 150%;
+    background: url('https://wallpapercave.com/wp/wp10997593.jpg') no-repeat center center/cover;
+    filter: blur(5px);
+    z-index: -1;
+}
+
+/* Card */
+.card {
+    background: rgba(20, 20, 20, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 20px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+/* Logo */
+.logo {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+/* Title */
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+/* Subtitle */
+.subtitle {
+    color: #bbb;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.btn {
+    background: rgba(255,255,255,0.05);
+    padding: 15px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+/* IP box */
+.ip-box {
+    margin-top: 20px;
+    padding: 10px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: white;
+}
+
+.copy {
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<div class="card">
+
+    <img src="logo.png" class="logo">
+
+    <div class="title">GabutClub SMP</div>
+    <div class="subtitle">The new SMP Server</div>
+
+    <div class="buttons">
+        <a href="https://discord.gg/k9ECUKCQmb" class="btn">Discord</a>
+        <a href="#" class="btn">Vote</a>
+    </div>
+
+    <p style="color:white;">Ip address & Port</p>
+    <div class="ip-box">
+        <span id="ip">gabutclub.my.id</span>
+        <span class="copy" onclick="copyIP()">📋</span>
+    </div>
+    <div class="ip-box">
+        <span id="port">21064</span>
+        <span class="copy" onclick="copyPort()">📋</span>
+    </div>
+
+</div>
+
+<script>
+function copyIP() {
+    const ip = document.getElementById("ip").innerText;
+    navigator.clipboard.writeText(ip);
+    alert("IP copied!");
+}
+function copyPort() {
+    const ip = document.getElementById("port").innerText;
+    navigator.clipboard.writeText(ip);
+    alert("Port copied!");
+}
+</script>
+
+</body>
+</html>
