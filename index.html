@@ -104,7 +104,13 @@ body {
     color: #ccc;
 }
 
-.server-status span:first-child {
+.online {
+    color: #4ade80; /* hijau */
+    font-weight: bold;
+}
+
+.offline {
+    color: #f87171; /* merah */
     font-weight: bold;
 }
 </style>
@@ -163,11 +169,13 @@ async function loadServer() {
     const data = await res.json();
 
     if (data.online) {
-      document.getElementById("status").innerHTML = "🟢 Online";
+      document.getElementById("status").innerHTML =
+        '<span class="online">● Online</span>';
       document.getElementById("players").innerText =
         data.players.online + " / " + data.players.max + " Players";
     } else {
-      document.getElementById("status").innerHTML = "🔴 Offline";
+      document.getElementById("status").innerHTML =
+        '<span class="offline">● Offline</span>';
       document.getElementById("players").innerText = "Server Offline";
     }
   } catch (e) {
