@@ -113,27 +113,6 @@ body {
     color: #f87171; /* merah */
     font-weight: bold;
 }
-    .player-box {
-    margin-top: 15px;
-    padding: 10px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 10px;
-    color: white;
-    font-size: 13px;
-    max-height: 120px;
-    overflow-y: auto;
-}
-
-.player-box p {
-    margin: 0 0 8px 0;
-    font-weight: bold;
-    color: #ccc;
-}
-
-.player-name {
-    padding: 3px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-}
 </style>
 </head>
 
@@ -168,10 +147,6 @@ body {
     <div class="ip-box">
         <span id="port">21064</span>
         <span class="copy" onclick="copyPort()">📋</span>
-    </div>
-    <div class="player-box">
-    <p>Online Players</p>
-    <div id="player-list">Loading...</div>
     </div>
 </div>
 
@@ -209,27 +184,6 @@ async function loadServer() {
 
 loadServer();
 setInterval(loadServer, 3500);
-
-const list = document.getElementById("player-list");
-
-if (data.online && data.players && data.players.list) {
-  list.innerHTML = "";
-
-  data.players.list.forEach(player => {
-    const div = document.createElement("div");
-    div.className = "player-name";
-    div.innerText = player;
-    list.appendChild(div);
-  });
-
-  if (data.players.list.length === 0) {
-    list.innerText = "No players online";
-  }
-
-} else {
-  list.innerText = "Player list not available";
-}
-
 </script>
 
 </body>
