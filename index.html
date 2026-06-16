@@ -163,7 +163,7 @@ function copyPort() {
 
 async function loadServer() {
   try {
-    const res = await fetch("https://api.mcsrvstat.us/bedrock/2/egeria.arqonara.com:25489");
+    const res = await fetch("https://mcstatus.io/status/java/egeria.arqonara.com:25489");
     const data = await res.json();
 
     if (data.online) {
