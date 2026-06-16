@@ -163,26 +163,35 @@ function copyPort() {
 
 async function loadServer() {
   try {
-    const res = await fetch("https://mcstatus.io/status/java/egeria.arqonara.com:25489");
+    // Memanggil API mcstatus.io untuk Java Edition
+    const res = await fetch("https://api.mcstatus.io/v2/status/java/egeria.arqonara.com:25489");
     const data = await res.json();
 
-    if (data.online) {
-      document.getElementById("status").innerHTML =
-        '<span class="online">● Online</span>';
-      document.getElementById("players").innerText =
-        data.players.online + " / " + data.players.max + " Players";
+    const statusEl = document.getElementById("status");
+    const playersEl = document.getElementById("players");
+
+    // Cek apakah server online berdasarkan respons API v2
+    if (data.online && data.players) {
+      statusEl.innerHTML = '<span class="online">● Online</span>';
+      
+      // Mengambil data dari objek data.players.online dan data.players.max
+      playersEl.innerText = `${data.players.online} / ${data.players.max} Players`;
     } else {
-      document.getElementById("status").innerHTML =
-        '<span class="offline">● Offline</span>';
-      document.getElementById("players").innerText = "Server Offline";
+      statusEl.innerHTML = '<span class="offline">● Offline</span>';
+      playersEl.innerText = "Server Offline";
     }
   } catch (e) {
+    console.error(e); // Menampilkan detail error di console browser untuk debug
     document.getElementById("status").innerText = "Error";
+    document.getElementById("players").innerText = "-";
   }
 }
 
+// Jalankan saat halaman pertama kali dimuat
 loadServer();
+// Loop setiap 3,5 detik
 setInterval(loadServer, 3500);
+
 </script>
 
 </body>
