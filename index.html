@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GabutClub SMP</title>
+<title>ElzoriaSMP - Server Minecraft</title>
 <link rel="icon" type="image/png" href="logo.png">
 
 <style>
@@ -134,18 +134,17 @@ body {
 
     <div class="buttons">
         <a href="https://discord.gg/k9ECUKCQmb" class="btn">Discord</a>
-        <a href="https://minecraftpocket-servers.com/server/133112/vote/" class="btn">Vote</a>
         <a href="https://chat.whatsapp.com/FKC7yd68vxUDAJQoIFrUFn" class="btn">Whatsapp Group</a>
         <a href="https://youtube.com/@zea_lott?si=rxbWXQItdm3EXaLX" class="btn">YouTube</a>
     </div>
 
     <p style="color:white;">Ip address & Port</p>
     <div class="ip-box">
-        <span id="ip">gabutclub.my.id</span>
+        <span id="ip">elzoria.my.id</span>
         <span class="copy" onclick="copyIP()">📋</span>
     </div>
     <div class="ip-box">
-        <span id="port">21064</span>
+        <span id="port">25489</span>
         <span class="copy" onclick="copyPort()">📋</span>
     </div>
 </div>
@@ -164,7 +163,7 @@ function copyPort() {
 
 async function loadServer() {
   try {
-    const res = await fetch("https://api.mcsrvstat.us/bedrock/2/basic-3.alstore.space:21064");
+    const res = await fetch("https://api.mcsrvstat.us/bedrock/2/egeria.arqonara.com:25489");
     const data = await res.json();
 
     if (data.online) {
